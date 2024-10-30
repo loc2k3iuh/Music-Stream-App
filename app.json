@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "fascinated-green-graham-crackers",
+    "slug": "snack-91833d8f-6cc5-4bd9-8767-9b2f606379e5",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "jsEngine": "hermes",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.khangodra.snack91833d8f6cc54bd987679b2f606379e5",
+      "permissions": [
+        "WAKE_LOCK",
+        "FOREGROUND_SERVICE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "451c39bb-ad3f-47ba-b4ea-b96fc146493b"
+      }
+    }
+  }
+}
