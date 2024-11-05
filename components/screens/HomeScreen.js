@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 {/* Font Awesome 5 */}
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faHome, faSearch, faUserCircle, faBookOpen, faBell, faHeart, faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faSearch, faBell, faHeart, faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 import { setPaused } from '../tools/actions';
@@ -651,6 +651,7 @@ const styles = StyleSheet.create({
   songArtist: {
     fontSize: 12,
     color: '#ccc',
+    
   },
   controlIcon: {
     color: '#fff',
