@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAngleLeft, faCircle, faHeart, faRssSquare, faEllipsisH, faRandom, faPlay, faHome, faSearch, faUserCircle, faBookOpen, faPause } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartO } from '@fortawesome/free-regular-svg-icons';
+
+{/* axios */}
 import axios from 'axios';
 
 import { setPaused } from '../tools/actions';
