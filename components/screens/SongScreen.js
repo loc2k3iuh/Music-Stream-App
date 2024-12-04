@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { useCallback, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+=======
+import React, { useCallback, useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ActivityIndicator  } from 'react-native';
+>>>>>>> origin/khang
 import Slider from '@react-native-community/slider';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -11,6 +16,11 @@ import { setCurrentSong, setPaused } from '../tools/actions'; // Import action
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAngleDown, faRandom, faStepBackward, faStepForward, faPause, faPlay, faHeart, faSync, faComment, faShare } from '@fortawesome/free-solid-svg-icons';
 
+<<<<<<< HEAD
+=======
+import axios from 'axios';
+
+>>>>>>> origin/khang
 import useAudio from '../orthers/useAudio';
 
 const SongScreen = ({ route }) => {
@@ -20,6 +30,12 @@ const SongScreen = ({ route }) => {
     const isPaused = useSelector((state) => state.isPaused);
     const duration = useSelector((state) => state.duration);
     const position = useSelector((state) => state.position);
+<<<<<<< HEAD
+=======
+    
+    const [loading, setLoading] = useState(false);
+    const [thumbnail, setThumbnail] = useState(null);
+>>>>>>> origin/khang
 
     const { song } = route.params;
 
@@ -30,13 +46,22 @@ const SongScreen = ({ route }) => {
 
     const handleSongChange = useCallback(() => {
         if (song && song.id !== currentSong?.id) {
+<<<<<<< HEAD
             dispatch(setCurrentSong(song));
             dispatch(setPaused(false));
+=======
+            setThumbnail(song.thumbnail);
+            console.log(song.thumbnail);
+            dispatch(setCurrentSong(song));
+            dispatch(setPaused(false));
+            console.log("Song changed:", currentSong);
+>>>>>>> origin/khang
         }else if(!isPaused) {
             dispatch(setPaused(false));
         }
       }, [song, currentSong, dispatch]);
 
+<<<<<<< HEAD
     useEffect(() => {
         handleSongChange();
     }, [handleSongChange]);
@@ -44,6 +69,46 @@ const SongScreen = ({ route }) => {
     const handlePlayPausePress = () => {
         dispatch(setPaused(!isPaused));
     };
+=======
+      const handleRandomSong = useCallback(() => {
+        const fetchSongs = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.get('https://fimflex.com/api/soundtech/songRandom');
+                var songNew = response.data;
+    
+                // Xác nhận rằng songNew không null và id khác currentSong
+                if (songNew && songNew.id !== currentSong?.id) {
+                    setThumbnail(songNew.thumbnail);
+                    dispatch(setCurrentSong(null));
+                    dispatch(setCurrentSong(songNew));
+                    dispatch(setPaused(false));
+                } else {
+                    console.log("Song is the same as current, fetching another one.");
+                }
+    
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+    
+        fetchSongs();
+    }, [currentSong, dispatch]);
+
+    useEffect(() => {
+        handleSongChange();
+    }, [handleSongChange, handleRandomSong, currentSong]);
+
+    useEffect(() => {
+        console.log("Current song updated:", currentSong);
+    }, [currentSong, dispatch]);
+
+    const handlePlayPausePress = () => {
+        dispatch(setPaused(!isPaused));
+    }; 
+>>>>>>> origin/khang
 
     const handleSlidingComplete = (value) => {
         const newPosition = value * duration;
@@ -69,11 +134,25 @@ const SongScreen = ({ route }) => {
                         <FontAwesomeIcon icon={faAngleDown} style={styles.iconClose} />
                     </TouchableOpacity>
                 </View>
+<<<<<<< HEAD
                 <Image source={{uri: song.thumbnail}} style={styles.poster} />
                 <View style={styles.infoContainer}>
                     <Text style={styles.title}>{song.title}</Text>
                     <Text style={styles.artist}>
                         {song.artists_info.map((artist) => artist.name).join(', ')}
+=======
+                {
+                    loading ? 
+                    <ActivityIndicator size="large" color="#0000ff" style={styles.poster} />
+                    :
+                <Image source={{uri: currentSong ? currentSong.thumbnail : song.thumbnail}} style={styles.poster} />
+
+                }
+                <View style={styles.infoContainer}>
+                    <Text style={styles.title}>{currentSong ? currentSong.title : song.title}</Text>
+                    <Text style={styles.artist}>
+                        {(currentSong ? currentSong.artists_info : song.artists_info).map((artist) => artist.name).join(', ')}
+>>>>>>> origin/khang
                     </Text>
                     <Image source={require("../../assets/images/audiowave.png")} style={styles.audiowave}></Image>
                     <Slider
@@ -97,6 +176,11 @@ const SongScreen = ({ route }) => {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.controlButton}
+<<<<<<< HEAD
+=======
+                            onPress={handleRandomSong}
+                            disabled={loading}
+>>>>>>> origin/khang
                         >
                             <FontAwesomeIcon icon={faStepBackward} style={styles.controlIcon} size={20} />
                         </TouchableOpacity>
@@ -109,6 +193,11 @@ const SongScreen = ({ route }) => {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.controlButton}
+<<<<<<< HEAD
+=======
+                            onPress={handleRandomSong}
+                            disabled={loading}
+>>>>>>> origin/khang
                         >
                             <FontAwesomeIcon icon={faStepForward} style={styles.controlIcon} size={20} />
                         </TouchableOpacity>
@@ -194,9 +283,14 @@ const styles = StyleSheet.create({
         padding: 16,
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
         width: '100%',
+<<<<<<< HEAD
         height: '45%',
         position: 'relative',
         bottom: 0,
+=======
+        height: '50%',
+        position: 'relative'
+>>>>>>> origin/khang
     },
     title: {
         fontSize: 15,
@@ -264,7 +358,11 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
         justifyContent: 'center',
         alignItems: 'center',
+<<<<<<< HEAD
         height: '100%',
+=======
+        height: '110%',
+>>>>>>> origin/khang
         position: 'absolute',
         width: '100%'
     },
@@ -274,7 +372,11 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 0,
         width: '100%',
+<<<<<<< HEAD
         height: '100%',
+=======
+        height: '110%',
+>>>>>>> origin/khang
     },
     controlIcon: {
         color: '#fff'

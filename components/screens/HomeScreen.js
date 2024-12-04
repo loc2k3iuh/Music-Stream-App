@@ -7,7 +7,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 {/* Font Awesome 5 */}
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+<<<<<<< HEAD
 import { faHome, faSearch, faUserCircle, faBookOpen, faBell, faHeart, faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+=======
+import { faHome, faSearch, faBell, faHeart, faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+>>>>>>> origin/khang
 import axios from 'axios';
 
 import { setPaused } from '../tools/actions';
@@ -105,7 +109,13 @@ const HomeScreen = () => {
       navigation.navigate('Chart', { chart });
     }
 
+<<<<<<< HEAD
     
+=======
+    const handleArtistPress = (artistId) => {
+      navigation.navigate('Artist', { artistId });
+    }    
+>>>>>>> origin/khang
 
     const SuggestionsCard = ({ item }) => {
         return (
@@ -148,7 +158,11 @@ const HomeScreen = () => {
 
       const ArtistCard = ({ item }) => {
         return (
+<<<<<<< HEAD
             <TouchableOpacity style={styles.containerChartsCard}>
+=======
+            <TouchableOpacity style={styles.containerChartsCard} onPress={() => handleArtistPress(item.id)}>
+>>>>>>> origin/khang
                 <Image source={{ uri: item.avatar }} style={styles.imageArtistCard} />
                 <View style={styles.containerArtistCard}>
                   <Text style={styles.titleArtistCard}>{item.name}</Text>
@@ -283,12 +297,20 @@ const HomeScreen = () => {
 
         { currentSong!=null ? (
           <>
+<<<<<<< HEAD
           
           <View style={styles.songContainer}>
             <View style={styles.songLeft}>
               <Image source={{uri: currentSong.thumbnail}} style={styles.thumbnailSong} />
               <View style={styles.songInfomation}>
                 <Text style={styles.songTitle} onPress={() => handleSongPress(currentSong)}>{currentSong.title}</Text>
+=======
+           <View style={styles.songContainer}>
+            <View style={styles.songLeft}>
+              <Image source={{uri: currentSong.thumbnail}} style={styles.thumbnailSong} />
+              <View style={styles.songInfomation}>
+                <Text style={styles.songTitle} onPress={() => handleSongPress(currentSong)} numberOfLines={1} ellipsizeMode="tail">{currentSong.title}</Text>
+>>>>>>> origin/khang
                 <Text style={styles.songArtist}>{currentSong.artists_info.map((artist) => artist.name).join(', ')}</Text>
               </View>
             </View>
@@ -343,6 +365,7 @@ const HomeScreen = () => {
         </View>
       </Modal>
             
+<<<<<<< HEAD
         <View style={styles.footer}>
             <View style={styles.footerItem}>
                 <FontAwesomeIcon icon={faHome} style={[styles.footerIcon, styles.footerIconActive]} />
@@ -361,6 +384,8 @@ const HomeScreen = () => {
                 <Text style={styles.footerText}>Thư viện</Text>
             </View>
         </View>
+=======
+>>>>>>> origin/khang
         </>
         ) : (
             <Text>Loading...</Text>
@@ -412,10 +437,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+<<<<<<< HEAD
     display: 'flex',
     backgroundColor: '#222',
     height: 70
   },
+=======
+    backgroundColor: '#222',
+    height: 70,
+    paddingHorizontal: 10,
+    position: 'absolute', // Đặt vị trí tuyệt đối để ghim ở dưới cùng
+    bottom: 0,
+    left: 0,
+    right: 0, // Đảm bảo chiếm toàn bộ chiều ngang
+    elevation: 5, // Thêm độ bóng cho container
+},
+>>>>>>> origin/khang
   footerItem: {
     alignItems: 'center',
   },
@@ -634,8 +671,13 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 10,
+<<<<<<< HEAD
     marginHorizontal: 16,
   },
+=======
+    marginRight: 16,
+},
+>>>>>>> origin/khang
   songLeft: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -658,14 +700,22 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     color: '#fff',
+<<<<<<< HEAD
     width: '100%',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
+=======
+    width: '80%',
+>>>>>>> origin/khang
   },
   songArtist: {
     fontSize: 12,
     color: '#ccc',
+<<<<<<< HEAD
+=======
+    
+>>>>>>> origin/khang
   },
   controlIcon: {
     color: '#fff',

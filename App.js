@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+<<<<<<< HEAD
+=======
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+>>>>>>> origin/khang
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -8,10 +13,27 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import LaunchScreen from './components/screens/LaunchScreen';
 import HomeScreen from './components/screens/HomeScreen';
+<<<<<<< HEAD
 import SongScreen from './components/screens/SongScreen';
 import AudioPlayer from './components/screens/AudioPlayer';
 import AlbumScreen from './components/screens/AlbumScreen';
 import ChartScreen from './components/screens/ChartScreen';
+=======
+import SearchScreen from './components/screens/SearchScreen';
+import FeedScreen from './components/screens/FeedScreen';
+import LibraryScreen from './components/screens/LibraryScreen';
+
+import ChartScreen from './components/screens/ChartScreen';
+import AlbumScreen  from './components/screens/AlbumScreen';
+import SongScreen from './components/screens/SongScreen';
+import ArtistScreen from './components/screens/ArtistScreen';
+
+import AudioPlayer from './components/screens/AudioPlayer';
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faHome, faSearch, faUserCircle, faBookOpen } from '@fortawesome/free-solid-svg-icons';
+>>>>>>> origin/khang
 
 {/* Context */}
 import { AudioProvider } from './components/orthers/AudioContext';
@@ -19,6 +41,42 @@ import { AudioProvider } from './components/orthers/AudioContext';
 import store from './components/tools/store';
 
 const Stack = createStackNavigator();
+<<<<<<< HEAD
+=======
+const Tab = createBottomTabNavigator();
+
+function HomeStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen 
+                name="Home" 
+                component={HomeScreen}
+                options={{
+                    headerShown: false}} />
+            <Stack.Screen 
+                name="Chart" 
+                component={ChartScreen}
+                options={{
+                    headerShown: false}} />
+            <Stack.Screen 
+                name="Album" 
+                component={AlbumScreen}
+                options={{
+                    headerShown: false}} />
+            <Stack.Screen 
+                name="Song"
+                component={SongScreen}
+                options={{
+                    headerShown: false}} />
+            <Stack.Screen 
+                name="Artist" 
+                component={ArtistScreen}
+                options={{
+                    headerShown: false}} />
+        </Stack.Navigator>
+    );
+}
+>>>>>>> origin/khang
 
 const AppNavigator = () => {
 
@@ -43,6 +101,7 @@ const AppNavigator = () => {
     }, [dispatch]);
 
     return (
+<<<<<<< HEAD
       <Stack.Navigator>
         {isLoggedIn ? (
             <>
@@ -72,6 +131,60 @@ const AppNavigator = () => {
           </Stack.Screen>
         )}
       </Stack.Navigator>
+=======
+        <Tab.Navigator>
+        {isLoggedIn ? (
+            <>
+                <Tab.Screen 
+                    name="Home" 
+                    component={HomeStack} 
+                    options={{
+                        headerShown: false,
+                        tabBarIcon: ({ color, size }) => (
+                            <FontAwesomeIcon icon={faHome} size={15} color={color} />
+                        ),
+                    tabBarLabel: 'Trang chủ',
+                    }} />
+                <Tab.Screen 
+                    name="Search" 
+                    component={SearchScreen} 
+                    options={{
+                        headerShown: false,
+                        tabBarIcon: ({ color, size }) => (
+                            <FontAwesomeIcon icon={faSearch} size={15} color={color} />
+                        ),
+                    tabBarLabel: 'Tìm kiếm',
+                    }}
+                     />
+                <Tab.Screen 
+                    name="Feed" 
+                    component={FeedScreen}
+                    options={{
+                        headerShown: false,
+                        tabBarIcon: ({ color, size }) => (
+                            <FontAwesomeIcon icon={faUserCircle} size={15} color={color} />
+                        ),
+                    tabBarLabel: 'Feed',
+                    }} />
+                <Tab.Screen 
+                    name="Library" 
+                    component={LibraryScreen} 
+                    options={{
+                        headerShown: false,
+                        tabBarIcon: ({ color, size }) => (
+                            <FontAwesomeIcon icon={faBookOpen} size={15} color={color} />
+                        ),
+                    tabBarLabel: 'Thư viện',
+                    }} />
+            </>
+        ) : (
+            <Tab.Screen 
+                name="Launch" 
+                component={LaunchScreen} 
+                options={{ headerShown: false }} />
+        )}
+    </Tab.Navigator>
+>>>>>>> origin/khang
     );
 }
 

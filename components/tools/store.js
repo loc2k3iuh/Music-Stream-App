@@ -1,9 +1,16 @@
 import {createStore} from 'redux';
 import { SET_CURRENT_SONG, SET_PAUSED, SET_DURATION, SET_POSITION } from './actions';
 
+<<<<<<< HEAD
 const initialState = {
     currentSong: null,
     isPaused: false,
+=======
+
+const initialState = {
+    currentSong: null,
+    isPaused: false
+>>>>>>> origin/khang
 }
 
 const reducer = (state = initialState, action) => {

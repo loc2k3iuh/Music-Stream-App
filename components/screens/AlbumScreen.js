@@ -8,6 +8,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAngleLeft, faCircle, faHeart, faRssSquare, faEllipsisH, faRandom, faPlay, faHome, faSearch, faUserCircle, faBookOpen, faPause } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartO } from '@fortawesome/free-regular-svg-icons';
+<<<<<<< HEAD
+=======
+
+{/* axios import */}
+>>>>>>> origin/khang
 import axios from 'axios';
 
 import { setPaused } from '../tools/actions';
@@ -164,6 +169,7 @@ const AlbumScreen = ({ route }) => {
           <>
           </>
         ) }
+<<<<<<< HEAD
 
         <View style={styles.footer}>
             <View style={styles.footerItem}>
@@ -183,6 +189,8 @@ const AlbumScreen = ({ route }) => {
                 <Text style={styles.footerText}>Thư viện</Text>
             </View>
         </View>
+=======
+>>>>>>> origin/khang
             
         </SafeAreaView>
     )
@@ -313,16 +321,32 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+<<<<<<< HEAD
         display: 'flex',
         backgroundColor: '#222',
         height: 70
+=======
+        backgroundColor: '#222',
+        height: 70,
+        paddingHorizontal: 10,
+        position: 'absolute', // Đặt vị trí tuyệt đối để ghim ở dưới cùng
+        bottom: 0,
+        left: 0,
+        right: 0, // Đảm bảo chiếm toàn bộ chiều ngang
+        elevation: 5, // Thêm độ bóng cho container
+>>>>>>> origin/khang
     },
     thumbnailSong: {
         height: 50,
         width: 50,
         borderRadius: 10,
+<<<<<<< HEAD
         marginHorizontal: 16,
       },
+=======
+        marginRight: 16,
+    },
+>>>>>>> origin/khang
       songLeft: {
         flexDirection: 'row',
         alignItems: 'center',
